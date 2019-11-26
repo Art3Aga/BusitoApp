@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="BuSimulatorApp.Views.MapaRecorridoRutaPage"
+             xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Button" x:Key="Button">
+                <Setter Property="BackgroundColor" Value="#FFBF01"></Setter>
+                <Setter Property="CornerRadius" Value="60"></Setter>
+                <Setter Property="TextColor" Value="White"></Setter>
+                <Setter Property="FontSize" Value="10"></Setter>
+                <Setter Property="FontAttributes" Value="None"></Setter>
+                <Setter Property="FontFamily" Value="Century Gothic"></Setter>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout>
+                <StackLayout Orientation="Horizontal" Padding="5"
+                         VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
+                    <Button Style="{StaticResource Button}"
+                        x:Name="btnSatelite" Clicked="btnSatelite_Clicked" Text="Satelite"></Button>
+                    <Button Style="{StaticResource Button}"
+                        x:Name="btnStreets" Clicked="btnStreets_Clicked" Text="Calle"></Button>
+                    <Button Style="{StaticResource Button}"
+                        x:Name="btnHibryd" Clicked="btnHibryd_Clicked" Text="Hibrido"></Button>
+                    <Button Style="{StaticResource Button}"
+                        x:Name="btnPosicion" Clicked="btnPosicion_Clicked" Text="Centro Ciudad"></Button>
+                </StackLayout>
+                <StackLayout  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                    <ImageButton x:Name="btnDown" BackgroundColor="Transparent"
+                                 Clicked="btnDown_Clicked"
+                                 WidthRequest="60"/>
+                </StackLayout>
+            </StackLayout>
+            <maps:Map x:Name="mapaParadas" WidthRequest="300" HeightRequest="660"/>
+            <StackLayout  x:Name="stackParadas" VerticalOptions="FillAndExpand"
+                          Spacing="60" Padding="30" BackgroundColor="White" HeightRequest="600">
+                <Label x:Name="lbltitulo" FontSize="18" FontFamily="Century Gothic" FontAttributes="Bold" 
+                       TextColor="Black"/>
+                <ListView x:Name="listViewParadas" ItemSelected="listViewParadas_ItemSelected"
+                          HeightRequest="500" SeparatorVisibility="None" HasUnevenRows="True" Margin="5,5,5,5">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell Appearing="ViewCell_Appearing">
+                                <Frame Padding="2" Margin="0,5,0,5" HeightRequest="50" CornerRadius="20" BackgroundColor="#FFBF01">
+                                    <StackLayout HeightRequest="100" HorizontalOptions="Center" 
+                                                 Orientation="Horizontal">
+                                        <Label HorizontalOptions="Center" Text="{Binding nombre_parada}"
+                                               FontSize="16" FontAttributes="Bold" TextColor="Black"
+                                               VerticalOptions="CenterAndExpand"></Label>
+                                        <Image Source="marcador.png" HorizontalOptions="End"
+                                               VerticalOptions="CenterAndExpand"></Image>
+                                    </StackLayout>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <!--<Label Text=""></Label>-->
+                <!--<StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="stackParadas_Tapped"></TapGestureRecognizer>
+                </StackLayout.GestureRecognizers>-->
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

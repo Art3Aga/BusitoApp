@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             BackgroundColor="#FFBF01"
+             x:Class="BuSimulatorApp.Views.ComentarPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout>
+                <Image Source="addcoment.png"
+                   WidthRequest="190"
+                   HeightRequest="190"/>
+            </StackLayout>
+            <StackLayout>
+                <Frame HasShadow="True" CornerRadius="45" TranslationY="10" HeightRequest="600">
+                    <StackLayout>
+                        <Frame CornerRadius="200" HasShadow="True">
+                            <StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Image Source="usuario.png" 
+                                            WidthRequest="35"
+                                            HeightRequest="35"
+                                            VerticalOptions="CenterAndExpand"/>
+                                    <Entry Placeholder="Nombre"
+                                        WidthRequest="250"
+                                        VerticalOptions="CenterAndExpand"
+                                        x:Name="txtnombre"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+                        <Frame>
+                            <Editor Placeholder="Comentar"
+                                    WidthRequest="250"
+                                    HeightRequest="100"
+                                    VerticalOptions="CenterAndExpand"
+                                    x:Name="txtcomentario"/>
+                        </Frame>
+                        <StackLayout VerticalOptions="EndAndExpand">
+                            <Button Text="Publicar Comentario" 
+                                CornerRadius="20"
+                                BackgroundColor="#FFBF01"
+                                WidthRequest="20"
+                                HeightRequest="45"
+                                TextColor="White"
+                                FontSize="16"
+                                Clicked="Button_Clicked"/>
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

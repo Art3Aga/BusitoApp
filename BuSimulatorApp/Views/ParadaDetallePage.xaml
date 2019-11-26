@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+             x:Class="BuSimulatorApp.Views.ParadaDetallePage">
+    <ContentPage.Content>
+        <StackLayout>
+            <maps:Map x:Name="mapaParadaSeleccionada"
+                      WidthRequest="300" HeightRequest="500"></maps:Map>
+            <StackLayout BackgroundColor="White" Spacing="15" Padding="20">
+                <Label x:Name="lbltitulo" FontSize="18" FontAttributes="Bold" TextColor="#6B6B6B" 
+                       HorizontalOptions="CenterAndExpand"></Label>
+                <ListView x:Name="listaViewRutas" VerticalOptions="CenterAndExpand"
+                          ItemSelected="listaViewRutas_ItemSelected" SeparatorVisibility="None" HasUnevenRows="True">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell Appearing="ViewCell_Appearing">
+                                <Frame HasShadow="True" Padding="2" Margin="0,5,0,5" HeightRequest="70" CornerRadius="20" BackgroundColor="#FFBF01">
+                                    <StackLayout HeightRequest="100" HorizontalOptions="Center" 
+                                                 Orientation="Horizontal">
+                                        <Label HorizontalOptions="Center" Text="{Binding nombre_ruta}"
+                                               FontSize="23" FontAttributes="Bold" TextColor="White"
+                                               VerticalOptions="CenterAndExpand"></Label>
+                                        <Image Source="autobus.png" HorizontalOptions="End"
+                                               VerticalOptions="CenterAndExpand" WidthRequest="30"
+                                               HeightRequest="30"></Image>
+                                    </StackLayout>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

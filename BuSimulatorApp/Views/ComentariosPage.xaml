@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="BuSimulatorApp.Views.ComentariosPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Comentar"
+                     IconImageSource="comentarios.png"
+                     Order="Primary"
+                     Priority="0"
+                     Clicked="ToolbarItem_Clicked"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout>
+                <ListView HasUnevenRows="True" x:Name="listviewComentarios" SeparatorVisibility="None">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell Appearing="ViewCell_Appearing">
+                                <Frame Padding="8,8,8,8" Margin="8,8,8,8" HeightRequest="200">
+                                    <StackLayout>
+                                        <Label Text="{Binding nombre_usuario}"
+                                               FontSize="22" FontAttributes="Bold" TextColor="#6B6B6B"
+                                               VerticalOptions="StartAndExpand"
+                                               HorizontalOptions="Start"/>
+                                        <Label Text="{Binding fecha}" TextColor="#ACA8A8"
+                                               FontSize="15"
+                                               VerticalOptions="StartAndExpand"
+                                               HorizontalOptions="Start"/>
+                                        <Label Text="{Binding texto}"
+                                               FontSize="18" TextColor="#525252"
+                                               VerticalOptions="CenterAndExpand"
+                                               HorizontalOptions="Center"/>
+                                    </StackLayout>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

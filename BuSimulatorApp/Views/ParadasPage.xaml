@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="BuSimulatorApp.Views.ParadasPage">
+    <!--<ContentPage.Resources>
+        <Style TargetType="Frame">
+            <Setter Property="BackgroundColor" Value="LightYellow" />
+            <Setter Property="BorderColor" Value="Blue" />
+            <Setter Property="Margin" Value="10" />
+            <Setter Property="CornerRadius" Value="15" />
+        </Style>
+
+        <Style TargetType="Label">
+            <Setter Property="Margin" Value="0, 4" />
+        </Style>
+
+        <Style x:Key="headerLabel" TargetType="Label">
+            <Setter Property="Margin" Value="0, 8" />
+            <Setter Property="FontSize" Value="Large" />
+            <Setter Property="TextColor" Value="Blue" />
+        </Style>
+
+        <Style TargetType="Image">
+            <Setter Property="FlexLayout.Order" Value="-1" />
+            <Setter Property="FlexLayout.AlignSelf" Value="Center" />
+        </Style>
+
+        <Style TargetType="Button">
+            <Setter Property="Text" Value="LEARN MORE" />
+            <Setter Property="FontSize" Value="Large" />
+            <Setter Property="TextColor" Value="White" />
+            <Setter Property="BackgroundColor" Value="Green" />
+            <Setter Property="BorderRadius" Value="20" />
+        </Style>
+    </ContentPage.Resources>-->
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame CornerRadius="100" BackgroundColor="White" HasShadow="True" Margin="0,5,0,5" Padding="2">
+                <SearchBar CancelButtonColor="Red" Placeholder="Buscar Parada" 
+                       x:Name="txtBuscar" TextChanged="txtBuscar_TextChanged"></SearchBar>
+            </Frame>
+            <ListView x:Name="listaViewParadas"
+                      ItemSelected="listaViewParadas_ItemSelected" SeparatorVisibility="None" HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame Padding="2" Margin="0,5,0,5" HeightRequest="150" CornerRadius="20" BackgroundColor="White">
+                                <StackLayout HeightRequest="100" HorizontalOptions="Center" 
+                                                 Orientation="Horizontal">
+                                    <Label HorizontalOptions="Center" Text="{Binding nombre_parada}"
+                                           FontSize="23" FontAttributes="Bold" TextColor="#6B6B6B"
+                                           VerticalOptions="CenterAndExpand"></Label>
+                                    <Image Source="marcador.png" VerticalOptions="CenterAndExpand"
+                                           HorizontalOptions="EndAndExpand"></Image>
+                                </StackLayout>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

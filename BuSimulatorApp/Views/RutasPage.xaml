@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="BuSimulatorApp.Views.RutasPage"
+             xmlns:cards="clr-namespace:Syncfusion.XForms.Cards;assembly=Syncfusion.Cards.XForms">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Button" x:Key="BotonesOpciones">
+                <Setter Property="FontSize" Value="13" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="BackgroundColor" Value="#6941a0" />
+                <Setter Property="CornerRadius" Value="50" />
+                <Setter Property="WidthRequest" Value="225" />
+                <Setter Property="HeightRequest" Value="50" />
+                <Setter Property="TranslationY" Value="-20"></Setter>
+                <Setter Property="TranslationX" Value="-30"></Setter>
+            </Style>
+            <Style TargetType="Frame" x:Key="FrameOpciones">
+                <Setter Property="BackgroundColor" Value="#ee433f" />
+                <Setter Property="CornerRadius" Value="50" />
+                <Setter Property="WidthRequest" Value="180" />
+                <Setter Property="HeightRequest" Value="50" />
+                <Setter Property="TranslationY" Value="-20"></Setter>
+                <Setter Property="TranslationX" Value="-30"></Setter>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame CornerRadius="100" BackgroundColor="White" HasShadow="True" Margin="0,5,0,5" Padding="2">
+                <SearchBar Placeholder="Buscar Ruta" x:Name="txtBuscar" TextChanged="txtBuscar_TextChanged"></SearchBar>
+            </Frame>
+            <!--<cards:SfCardLayout x:Name="listaViewRutas" SwipeDirection="Left"
+                                HeightRequest="600" WidthRequest="300" BackgroundColor="Transparent" VerticalOptions="CenterAndExpand"
+                                CardTapped="listaViewRutas_CardTapped">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <cards:SfCardView FadeOutOnSwiping="True" HorizontalOptions="CenterAndExpand" 
+                                          VerticalOptions="CenterAndExpand" HeightRequest="600" WidthRequest="400" BorderWidth="0" BorderColor="White"
+                                          Padding="0" Margin="0">
+                            <Frame HeightRequest="600" WidthRequest="400" Margin="0" Padding="0" CornerRadius="8">
+                                <StackLayout>
+                                    <Frame WidthRequest="400" HeightRequest="250" HasShadow="False" 
+                                       Margin="0" Padding="0" BackgroundColor="Transparent">
+                                        <Image Source="{Binding imgPath}" Aspect="AspectFill" IsOpaque="True"/>
+                                    </Frame>
+                                    <Frame Padding="15,15,15,15" Margin="0" BackgroundColor="White" HasShadow="False" 
+                                       HeightRequest="300" CornerRadius="8">
+                                        <StackLayout Margin="0" Padding="0" Spacing="10">
+                                            <Label Text="{Binding nombre_ruta}" FontSize="27" FontAttributes="Bold" TextColor="Black"
+                                           VerticalOptions="Start" FontFamily="Century Gothic"></Label>
+                                            <Label Text="Precio | Alias | Cantidad Unidades" FontSize="16" FontAttributes="Bold" 
+                                                   FontFamily="Century Gothic" TextColor="#ACA8A8"/>
+                                            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" 
+                                                         VerticalOptions="CenterAndExpand" Spacing="10" WidthRequest="400">
+                                                <StackLayout Spacing="20">
+                                                    <Label Text="Precio" FontSize="16" TextColor="Black" FontFamily="Century Gothic"></Label>
+                                                    <Label Text="{Binding precio}" FontSize="15" TextColor="Black" FontFamily="Century Gothic"></Label>
+                                                </StackLayout>
+                                                <StackLayout Spacing="20">
+                                                    <Label Text="Alias" FontSize="16" TextColor="Black" FontFamily="Century Gothic"></Label>
+                                                    <Label Text="{Binding nombre_abreviado}" FontSize="15" TextColor="Black" FontFamily="Century Gothic"></Label>
+                                                </StackLayout>
+                                                <StackLayout Spacing="20">
+                                                    <Label Text="Unidades" FontSize="16" TextColor="Black" FontFamily="Century Gothic"></Label>
+                                                    <Label Text="{Binding cantidadUnidades}" FontSize="15" TextColor="Black" FontFamily="Century Gothic"></Label>
+                                                </StackLayout>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </Frame>
+                                    <Button x:Name="btnVerRecorrido" Style="{StaticResource BotonesOpciones}" 
+                                            Text="Ver Recorrido" HorizontalOptions="Start" Clicked="btnVerRecorrido_Clicked"/>
+                                </StackLayout>
+                            </Frame>
+                        </cards:SfCardView>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </cards:SfCardLayout>-->
+            <ListView x:Name="listaViewRutas"
+                      ItemSelected="listaViewRutas_ItemSelected" SeparatorVisibility="None" HasUnevenRows="True"
+                      IsPullToRefreshEnabled="True" IsRefreshing="False" Refreshing="listaViewRutas_Refreshing">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.ContextActions>
+                                <MenuItem Text="Ver Detalles" CommandParameter="{Binding .}" 
+                                          x:Name="btnVerDetalle" Clicked="btnVerDetalle_Clicked"/>
+                            </ViewCell.ContextActions>
+                            <Frame Padding="8,8,8,8" Margin="8,8,8,8" HeightRequest="150" CornerRadius="10" BackgroundColor="White">
+                                <StackLayout HeightRequest="150" Orientation="Horizontal">
+                                    <Frame  WidthRequest="110" HeightRequest="130" CornerRadius="10" BackgroundColor="Transparent" 
+                                           HasShadow="False" IsClippedToBounds="True" Margin="0" Padding="0">
+                                        <Image Source="{Binding rutaimagen}" Aspect="AspectFill" IsOpaque="True"/>
+                                    </Frame>
+                                    <StackLayout Margin="20,2,2,20" WidthRequest="200">
+                                        <Label HorizontalOptions="Center" HorizontalTextAlignment="Start" Text="{Binding nombre_ruta}"
+                                           FontSize="20" FontAttributes="Bold" TextColor="#6B6B6B"
+                                           VerticalOptions="Start" FontFamily="Century Gothic"/>
+                                        <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand">
+                                            <Label Text="Precio | Alias | Buses" FontSize="16" FontAttributes="Bold" 
+                                                   FontFamily="Century Gothic" TextColor="#ACA8A8"/>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand" TranslationY="10">
+
+                                            <StackLayout Orientation="Horizontal" HorizontalOptions="Start">
+                                                <Label TextColor="#6B6B6B" FontSize="15" FontAttributes="Bold"
+                                               FontFamily="Century Gothic" Text="$"/>
+                                                <Label x:Name="lblprecio" Text="{Binding precio}" TextColor="#6B6B6B" FontSize="15" FontAttributes="Bold"
+                                               FontFamily="Century Gothic"/>
+                                            </StackLayout>
+                                            <Label FontFamily="Century Gothic" TextColor="#6B6B6B" FontSize="15" FontAttributes="Bold" Text="|"/>
+                                            <StackLayout VerticalOptions="Center">
+                                                <Label Text="{Binding unidades}" TextColor="#6B6B6B" FontSize="15" FontAttributes="Bold"
+                                               FontFamily="Century Gothic"/>
+                                            </StackLayout>
+                                            <Label FontFamily="Century Gothic" TextColor="#6B6B6B" FontSize="15" FontAttributes="Bold" Text="|"/>
+                                            <StackLayout VerticalOptions="End">
+                                                <Label Text="{Binding nombre_abreviado}" TextColor="#6B6B6B" FontSize="15" FontAttributes="Bold"
+                                               FontFamily="Century Gothic"/>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </StackLayout>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

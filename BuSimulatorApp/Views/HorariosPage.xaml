@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="BuSimulatorApp.Views.HorariosPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame CornerRadius="0" BackgroundColor="#FFBF01" HeightRequest="380" HasShadow="True" IsClippedToBounds="True" Margin="0" Padding="0">
+                <Label TextColor="White" FontSize="30" LineBreakMode="WordWrap" TextDecorations="None" VerticalTextAlignment="Center"
+                   HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" 
+                   x:Name="labelTitulo" FontAttributes="Bold" FontFamily="Century Gothic"/>
+            </Frame>
+            <ListView x:Name="listviewHorarios" HasUnevenRows="True" SeparatorVisibility="None" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell Appearing="ViewCell_Appearing">
+                            <Frame Padding="8,8,8,8" Margin="8,8,8,8" HeightRequest="200" CornerRadius="10">
+                                <StackLayout HeightRequest="150" Orientation="Horizontal">
+                                    <StackLayout Margin="20,2,2,20" WidthRequest="200" HorizontalOptions="Start">
+                                        <StackLayout Orientation="Horizontal" VerticalOptions="Start">
+                                            <Label HorizontalOptions="Start" HorizontalTextAlignment="Start" Text="{Binding nombre_bus}"
+                                                   FontSize="22" FontAttributes="Bold" TextColor="#6B6B6B"
+                                                   VerticalOptions="Start" FontFamily="Century Gothic"/>
+                                            <Label HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" Text="{Binding placa}"
+                                                   FontSize="12" FontAttributes="Bold" TextColor="Black"
+                                                   VerticalOptions="Center" FontFamily="Century Gothic"/>
+                                        </StackLayout>
+                                        <StackLayout VerticalOptions="CenterAndExpand">
+                                            <Label Text="Motorista" FontSize="15" FontAttributes="Bold" 
+                                                   FontFamily="Century Gothic" TextColor="#ACA8A8"/>
+                                            <Label Text="{Binding nombre_motorista}" TextColor="Black" 
+                                                   FontSize="15" FontAttributes="Bold"
+                                               FontFamily="Century Gothic"/>
+                                            <Label Text="Horario Ida" FontSize="15" FontAttributes="Bold" 
+                                                   FontFamily="Century Gothic" TextColor="#ACA8A8"/>
+                                            <Label Text="{Binding horario_ida}" TextColor="Black" 
+                                                   FontSize="15" FontAttributes="Bold"
+                                               FontFamily="Century Gothic"/>
+                                            <Label Text="Horario Regreso" FontSize="15" FontAttributes="Bold" 
+                                                   FontFamily="Century Gothic" TextColor="#ACA8A8"/>
+                                            <Label Text="{Binding horario_regreso}" TextColor="Black" 
+                                                   FontSize="15" FontAttributes="Bold"
+                                               FontFamily="Century Gothic"/>
+                                        </StackLayout>
+                                        
+                                        <!--<StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" TranslationY="10">
+                                            <StackLayout Orientation="Horizontal" HorizontalOptions="Start">
+                                                <Label TextColor="#6B6B6B" FontSize="15" FontAttributes="Bold"
+                                               FontFamily="Century Gothic" Text="$"/>
+                                                <Label x:Name="lblprecio" Text="{Binding precio}" TextColor="#6B6B6B" FontSize="15" FontAttributes="Bold"
+                                               FontFamily="Century Gothic"/>
+                                            </StackLayout>
+                                            <Label FontFamily="Century Gothic" TextColor="#6B6B6B" FontSize="15" FontAttributes="Bold" Text="|"/>
+                                            <StackLayout VerticalOptions="Center">
+                                                <Label Text="{Binding unidades}" TextColor="#6B6B6B" FontSize="15" FontAttributes="Bold"
+                                               FontFamily="Century Gothic"/>
+                                            </StackLayout>
+                                            <Label FontFamily="Century Gothic" TextColor="#6B6B6B" FontSize="15" FontAttributes="Bold" Text="|"/>
+                                            <StackLayout VerticalOptions="End">
+                                                <Label Text="{Binding nombre_abreviado}" TextColor="#6B6B6B" FontSize="15" FontAttributes="Bold"
+                                               FontFamily="Century Gothic"/>
+                                            </StackLayout>
+                                        </StackLayout>-->
+                                    </StackLayout>
+                                    <Frame  WidthRequest="110" HeightRequest="130" CornerRadius="10" BackgroundColor="Transparent" 
+                                           HasShadow="False" IsClippedToBounds="True" Margin="0" Padding="0" HorizontalOptions="EndAndExpand">
+                                        <Image Source="{Binding rutaImagen}" Aspect="AspectFill" IsOpaque="True"/>
+                                    </Frame>
+                                </StackLayout>
+                            </Frame>
+                            <!--<Frame Padding="8,8,8,8" Margin="8,8,8,8" HeightRequest="150" CornerRadius="10">
+                                <StackLayout HeightRequest="150" Orientation="Horizontal">
+                                    <Frame  WidthRequest="110" HeightRequest="130" CornerRadius="10" BackgroundColor="Transparent" 
+                                           HasShadow="False" IsClippedToBounds="True" Margin="0" Padding="0">
+                                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="Start">
+                                            <Label TextColor="#6B6B6B" FontSize="15" FontAttributes="Bold"
+                                               FontFamily="Century Gothic" Text="Motorista:"/>
+                                            <Label Text="{Binding nombre_motorista}" FontSize="15" FontAttributes="Bold" 
+                                                   FontFamily="Century Gothic" TextColor="#6B6B6B"/>
+                                            <Label TextColor="#6B6B6B" FontSize="15" FontAttributes="Bold"
+                                               FontFamily="Century Gothic" Text="Placa:"/>
+                                            <Label Text="{Binding placa}" FontSize="15" FontAttributes="Bold" 
+                                                   FontFamily="Century Gothic" TextColor="#6B6B6B"/>
+                                        </StackLayout>
+                                    </Frame>
+                                    <StackLayout Margin="20,2,2,20" WidthRequest="200">
+                                        <Label HorizontalOptions="Center" HorizontalTextAlignment="Start" Text="{Binding nombre_bus}"
+                                           FontSize="20" FontAttributes="Bold" TextColor="#6B6B6B"
+                                           VerticalOptions="Start" FontFamily="Century Gothic"/>
+                                        <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" HorizontalOptions="Start">
+                                            <Label TextColor="#6B6B6B" FontSize="15" FontAttributes="Bold"
+                                               FontFamily="Century Gothic" Text="Ida"/>
+                                            <Label Text="{Binding horario_ida}" FontSize="15" FontAttributes="Bold" 
+                                                   FontFamily="Century Gothic" TextColor="#6B6B6B"/>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand" TranslationY="10">
+
+                                            <StackLayout Orientation="Horizontal" HorizontalOptions="Start">
+                                                <Label TextColor="#6B6B6B" FontSize="15" FontAttributes="Bold"
+                                               FontFamily="Century Gothic" Text="Regreso"/>
+                                                <Label x:Name="lblprecio" Text="{Binding horario_regreso}" TextColor="#6B6B6B" FontSize="15" FontAttributes="Bold"
+                                               FontFamily="Century Gothic"/>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </StackLayout>
+                            </Frame>-->
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

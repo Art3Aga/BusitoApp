@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="BuSimulatorApp.Views.VerInfoRuta"
+             WidthRequest="500"
+             HeightRequest="500"
+             BackgroundColor="Transparent">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="back.png" Order="Primary" Priority="0"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout >
+            <Frame WidthRequest="500"
+                   HeightRequest="500" 
+                   BackgroundColor="#FFBF01" 
+                   HorizontalOptions="Start" 
+                   VerticalOptions="CenterAndExpand">
+                <StackLayout>
+                    <Frame CornerRadius="10">
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Ruta: " FontSize="18"
+                                   FontAttributes="Bold,Italic"
+                                   TextColor="Black"/>
+                            <Label Text="{Binding nombre_ruta}" FontSize="16" TextColor="Black"/>
+                        </StackLayout>
+                    </Frame>
+                    <Frame CornerRadius="10">
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Alias: " FontSize="18"
+                                   FontAttributes="Bold,Italic"
+                                   TextColor="Black"/>
+                            <Label Text="{Binding nombre_abreviado}" FontSize="16" TextColor="Black"/>
+                        </StackLayout>
+                    </Frame>
+                    <Frame CornerRadius="10">
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Tarifa: " FontSize="18"
+                                   FontAttributes="Bold,Italic"
+                                   TextColor="Black"/>
+                            <Label Text="{Binding precio}" FontSize="16" TextColor="Black"/>
+                        </StackLayout>
+                    </Frame>
+                    <Frame CornerRadius="10">
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Unidades de Buses: " FontSize="18"
+                                   FontAttributes="Bold,Italic"
+                                   TextColor="Black"/>
+                            <Label Text="{Binding unidades}" FontSize="16" TextColor="Black"/>
+                        </StackLayout>
+                    </Frame>
+                    <Frame CornerRadius="10">
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Hora Inicio Jornada: " FontSize="18"
+                                   FontAttributes="Bold,Italic"
+                                   TextColor="Black"/>
+                            <Label Text="{Binding hora_inicio}" FontSize="16" TextColor="Black"/>
+                        </StackLayout>
+                    </Frame>
+                    <Frame CornerRadius="10">
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Hora Final Jornada: " FontSize="18"
+                                   FontAttributes="Bold,Italic"
+                                   TextColor="Black"/>
+                            <Label Text="{Binding hora_final}" FontSize="16" TextColor="Black"/>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

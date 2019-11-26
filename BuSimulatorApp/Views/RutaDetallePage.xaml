@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="BuSimulatorApp.Views.RutaDetallePage">
+    <ContentPage.Content>
+        <StackLayout>
+            <!--6941a0-->
+            <Frame CornerRadius="0" BackgroundColor="#FFBF01" HeightRequest="380" HasShadow="True" IsClippedToBounds="True" Margin="0" Padding="0">
+                <Label TextColor="White" FontSize="30" LineBreakMode="WordWrap" TextDecorations="None" VerticalTextAlignment="Center"
+                   HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" 
+                   x:Name="labelTitulo" FontAttributes="Bold" FontFamily="Century Gothic"/>
+                <!--<Grid RowSpacing="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="155*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Image Grid.Row="0" Grid.Column="0"
+                           x:Name="img"
+                           HorizontalOptions="FillAndExpand"
+                           VerticalOptions="FillAndExpand" 
+                           Aspect="Fill" />
+                    <Label Grid.Row="0" Grid.Column="0"
+                           x:Name="labelTitulo" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HorizontalTextAlignment="Center"
+                           VerticalTextAlignment="Center" TextColor="White" FontSize="30"
+                           LineBreakMode="WordWrap" FontFamily="Century Gothic" FontAttributes="Bold" TextDecorations="Underline"/>
+                </Grid>-->
+            </Frame>
+            <ListView HasUnevenRows="True" x:Name="listViewParadas" SeparatorColor="Transparent"
+                      ItemSelected="listViewParadas_ItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell Appearing="ViewCell_Appearing">
+                            <Frame Padding="2" Margin="0,5,0,5" HeightRequest="150" CornerRadius="20" HasShadow="True">
+                                <StackLayout WidthRequest="300">
+                                        <Label HorizontalOptions="Center" Text="{Binding nombre_parada}"
+                                           FontSize="23" FontAttributes="Bold" TextColor="#6B6B6B"
+                                           VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                                    </StackLayout>
+                                    <!--<StackLayout>
+                                        <ListView ItemSelected="listViewHorarios_ItemSelected" SeparatorColor="Transparent" x:Name="listViewHorarios" 
+                                                  ItemsSource="{Binding horarios}">
+                                            <ListView.ItemTemplate>
+                                                <DataTemplate>
+                                                    <ViewCell>
+                                                        <StackLayout>
+                                                            <Frame Padding="2" Margin="0,5,0,5" HasShadow="True" CornerRadius="10"
+                                                                   HeightRequest="50">
+                                                                <StackLayout Orientation="Horizontal">
+                                                                    <Label Text="{Binding hora_llegada_a_parada}"
+                                                                       FontSize="15"
+                                                                       FontAttributes="Italic"
+                                                                       FontFamily="Century Gothic"
+                                                                       HorizontalOptions="CenterAndExpand"
+                                                                       VerticalTextAlignment="Center"
+                                                                       HorizontalTextAlignment="Center"/>
+                                                                    <Button Text="Ver" BackgroundColor="#6941a0"
+                                                                            TextColor="White" FontSize="8" CornerRadius="10"
+                                                                            FontFamily="Century Gothic" WidthRequest="50" HeightRequest="25"
+                                                                            HorizontalOptions="EndAndExpand"
+                                                                            x:Name="btnVer" Clicked="btnVer_Clicked"/>
+                                                                </StackLayout>
+                                                            </Frame>
+                                                        </StackLayout>
+                                                    </ViewCell>
+                                                </DataTemplate>
+                                            </ListView.ItemTemplate>
+                                        </ListView>
+                                    </StackLayout>-->
+                            </Frame>
+                            <!---->
+                            <!--<StackLayout>
+                                <Label Text="{Binding nombre_parada}"
+                                       FontSize="20"
+                                       FontAttributes="Bold"
+                                       HorizontalTextAlignment="Center"/>
+                                <ListView x:Name="listViewHorarios" ItemsSource="{Binding horarios}">
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <ViewCell>
+                                                <StackLayout>
+                                                    <Label Text="{Binding hora_llegada_a_parada}"/>
+                                                </StackLayout>
+                                            </ViewCell>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+                            </StackLayout>-->
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button CornerRadius="4"
+                    BackgroundColor="#FFBF01"
+                    TextColor="White"
+                    HeightRequest="60"
+                    WidthRequest="250"
+                    FontSize="14"
+                    FontAttributes="Bold"
+                    x:Name="btnVerMapa"
+                    HorizontalOptions="Center"
+                    Clicked="btnVerMapa_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
